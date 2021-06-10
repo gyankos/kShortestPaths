@@ -2,6 +2,9 @@
 
 #include <iostream>
 
+#ifndef kShortestPaths_legacy_list
+#define kShortestPaths_legacy_list
+
 // added this line because without it g++ no longer likes friend declaration
 // in struct Node... D. Eppstein, 27 May 1999
 template<class T> class ListIter;
@@ -131,4 +134,4 @@ template <class T> std::ostream & operator << (std::ostream &out, List<T> &list)
   return out;
 }
   
-
+#endif

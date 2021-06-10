@@ -3,6 +3,9 @@
 // binary max heap with elements packed in [heapStart, heapEnd)
 // heapEnd - heapStart = number of elements
 
+#ifndef kShortestPaths_2heap
+#define  kShortestPaths_2heap
+
 template <class T> int heapSize ( T *s, T *e )
 {
   return e - s;
@@ -144,3 +147,5 @@ template <class T> T *newTreeHeapAdd(T *heapRoot, T *node)
     return newRoot;
   }
 }
+
+#endif

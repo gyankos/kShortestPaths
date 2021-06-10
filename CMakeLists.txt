@@ -3,4 +3,4 @@ project(kShortestPaths)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(kShortestPaths main.cpp)
+add_executable(kShortestPaths main.cpp graph.cpp kbest.cpp)
