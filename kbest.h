@@ -60,14 +60,14 @@ struct GraphHeap {
   }
 };
 
-Node<GraphHeap *> *Node<GraphHeap *>::freeList = NULL;
-const int Node<GraphHeap *>::newBlocksize = 64;
+template<>Node<GraphHeap *> *Node<GraphHeap *>::freeList = nullptr;
+template<> const int Node<GraphHeap *>::newBlocksize = 64;
 
-Node<GraphArc *> *Node<GraphArc *>::freeList = NULL;
-const int Node<GraphArc *>::newBlocksize = 64;
+template<> Node<GraphArc *> *Node<GraphArc *>::freeList = nullptr;
+template<> const int Node<GraphArc *>::newBlocksize = 64;
 
-Node<List<GraphArc *> > *Node<List<GraphArc *> >::freeList = NULL;
-const int Node<List<GraphArc *> >::newBlocksize = 64;
+template<> Node<List<GraphArc *> > *Node<List<GraphArc *> >::freeList = nullptr;
+template<> const int Node<List<GraphArc *> >::newBlocksize = 64;
 
 
 List<GraphHeap *> GraphHeap::usedBlocks;
@@ -321,18 +321,18 @@ void buildSidetracksHeap(int state, int pred)
 void printTree(GraphHeap *t, int n)
 {
   int i;
-  for ( i = 0 ; i < n ; ++i ) cout << ' ';
+  for ( i = 0 ; i < n ; ++i ) std::cout << ' ';
   if ( !t ) {
-    cout << "-\n";
+      std::cout << "-\n";
     return;
   }
-  cout << *t->arc;
-  cout << " [";
+    std::cout << *t->arc;
+    std::cout << " [";
   pGraphArc *heap = t->arcHeap;
   for ( i = 0 ; i < t->arcHeapSize ; ++i ) {
-    cout << *heap[i].p;
+      std::cout << *heap[i].p;
   }
-  cout << "]\n";
+    std::cout << "]\n";
   if ( !t->left && !t->right )
     return;
   printTree(t->left, n+1);
@@ -341,18 +341,18 @@ void printTree(GraphHeap *t, int n)
 
 void shortPrintTree(GraphHeap *t)
 {
-  cout << *t->arc;
+    std::cout << *t->arc;
   if ( !t->left && !t->right )
     return;
-  cout << " (";
+    std::cout << " (";
   if ( t->left) {
     shortPrintTree(t->left);
     if ( t->right ) {
-      cout << ' ';
+        std::cout << ' ';
       shortPrintTree(t->right);
     }
   } else
     if ( t->right )
       shortPrintTree(t->right);
-  cout << ')';
+    std::cout << ')';
 }      

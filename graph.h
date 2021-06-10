@@ -1,7 +1,7 @@
-#include <math.h>
-#include <iostream.h>
-#include <assert.h>
-#include <new.h>
+#include <cmath>
+#include <iostream>
+#include <cassert>
+//#include <new.h>
 #define CUSTOMNEW
 #include "2heap.h"
 #include "list.h"
@@ -203,12 +203,12 @@ Graph shortestPathTree(Graph g, int dest, float *dist)
 
 // rudimentary graph I/O (no error checking)
 
-ostream & operator << (ostream &o, GraphArc &a)
+std::ostream & operator << (std::ostream &o, GraphArc &a)
 {
   return o << '(' << a.source << ' ' << a.dest << ' ' << a.weight << ')';
 }
 
-istream & operator >> (istream &istr, GraphArc &a)
+std::istream & operator >> (std::istream &istr, GraphArc &a)
 {
   char c;
   int i;
@@ -221,13 +221,13 @@ istream & operator >> (istream &istr, GraphArc &a)
   return istr;
 }
 
-istream & operator >> (istream &istr, GraphState &s)
+std::istream & operator >> (std::istream &istr, GraphState &s)
 {
   char c;
   return istr;
 }
 
-istream & operator >> (istream &istr, Graph &g)
+std::istream & operator >> (std::istream &istr, Graph &g)
 {
   char c;
   GraphArc a;
@@ -249,7 +249,7 @@ istream & operator >> (istream &istr, Graph &g)
   return istr;
 }
 
-ostream & operator << (ostream &out, Graph g)
+std::ostream & operator << (std::ostream &out, Graph g)
 {
   out << g.nStates << '\n';;
   for ( int i = 0 ; i < g.nStates ; ++i ) {
@@ -259,10 +259,10 @@ ostream & operator << (ostream &out, Graph g)
   }
 }
 
-Node<GraphArc> *Node<GraphArc>::freeList = NULL;
-const int Node<GraphArc>::newBlocksize = 64;
+template<> Node<GraphArc> *Node<GraphArc>::freeList = nullptr;
+template<> const int Node<GraphArc>::newBlocksize = 64;
 
-Node<int> *Node<int>::freeList = NULL;
-const int Node<int>::newBlocksize = 64;
+template<> Node<int> *Node<int>::freeList = nullptr;
+template<> const int Node<int>::newBlocksize = 64;
 
 #include "kbest.h"

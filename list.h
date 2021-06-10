@@ -1,6 +1,6 @@
 // singly linked list, implemented by Jon Graehl <jongraehl@earthling.net>
 
-#include <iostream.h>
+#include <iostream>
 
 // added this line because without it g++ no longer likes friend declaration
 // in struct Node... D. Eppstein, 27 May 1999
@@ -95,10 +95,10 @@ template<class T> class ListIter {
   Node<T> *current;
 public:
   ListIter(List<T> &l) : previous(&l.head), current(l.head) {}
-  int operator ++ () {
+  size_t operator ++ () {
     previous = &(current->next);
     current = *previous;
-    return (int)current;
+    return (size_t)current;
   }
   operator int() const { return (current != NULL); }
   T & data() const { return current->data; }
@@ -119,7 +119,7 @@ public:
   }
 };
 
-template <class T> ostream & operator << (ostream &out, List<T> &list)
+template <class T> std::ostream & operator << (std::ostream &out, List<T> &list)
 {
   out << "(";
   for ( Node<T> *n = list.first(); n ; n = n->next ) {
