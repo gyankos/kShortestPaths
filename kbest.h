@@ -98,8 +98,6 @@ void buildSidetracksHeap(int state, int pred);
 
 void printTree(GraphHeap *t, int n);
 
-
-
 void shortPrintTree(GraphHeap *t);
 
-#endif kShortestPaths_kbest
+#endif

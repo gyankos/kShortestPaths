@@ -7,7 +7,7 @@
 
 
 #include "kbest.h"
-#include <strstream>
+#include <cstdlib>
 #include <iostream>
 
 int main(int argc, char *argv[])
@@ -18,13 +18,19 @@ int main(int argc, char *argv[])
     }
     int k;
     int source, dest;
-    std::istrstream sstr(argv[1]);
-    std::istrstream dstr(argv[2]);
-    std::istrstream kstr(argv[3]);
 
-    if ( !((sstr >> source) && (dstr >> dest) && (kstr >> k)) ) {
-        std::cerr << "Bad argument (should be integer) - aborting.\n";
-        return -1;
+    char* p;
+    source = (int)strtol(argv[1], &p, 10);
+    if (*p) {
+        std::cerr << "Bad source (should be integer) - aborting.\n";
+    }
+    dest = (int)strtol(argv[2], &p, 10);
+    if (*p) {
+        std::cerr << "Bad target (should be integer) - aborting.\n";
+    }
+    k = (int)strtol(argv[3], &p, 10);
+    if (*p) {
+        std::cerr << "Bad k parameter (should be integer) - aborting.\n";
     }
 
     Graph graph;

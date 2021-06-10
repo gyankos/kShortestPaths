@@ -219,4 +219,5 @@ std::ostream & operator << (std::ostream &out, Graph g)
       out << a.data() << ' ';
     out << '\n';
   }
+  return out;
 }

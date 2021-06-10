@@ -79,6 +79,4 @@ std::istream & operator >> (std::istream &istr, Graph &g);
 std::ostream & operator << (std::ostream &out, Graph g);
 
 
-
-
 #endif
