@@ -3,4 +3,9 @@ project(kShortestPaths)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(kShortestPaths main.cpp graph.cpp kbest.cpp)
+include_directories(include)
+
+add_library(kShortestPaths source/graph.cpp source/kbest.cpp)
+
+add_executable(kShortestPaths_example source/main.cpp )
+target_link_libraries(kShortestPaths_example kShortestPaths)

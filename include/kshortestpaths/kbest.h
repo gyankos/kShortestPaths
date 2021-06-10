@@ -4,8 +4,8 @@
    (http://www.ics.uci.edu/~eppstein/
     http://www.ics.uci.edu/~eppstein/pubs/p-kpath.ps)
    */
-#include "graph.h"
-#include "2heap.h"
+#include <kshortestpaths/graph.h>
+#include <kshortestpaths/2heap.h>
 
 #ifndef kShortestPaths_kbest
 #define kShortestPaths_kbest

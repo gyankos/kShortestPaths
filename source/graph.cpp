@@ -2,7 +2,7 @@
 // Created by giacomo on 10/06/21.
 //
 
-#include "graph.h"
+#include <kshortestpaths/graph.h>
 
 // Depth First Search (only one search can be active at once)
 Graph dfsGraph;

@@ -6,7 +6,7 @@
    */
 
 
-#include "kbest.h"
+#include <kshortestpaths/kbest.h>
 #include <cstdlib>
 #include <iostream>
 

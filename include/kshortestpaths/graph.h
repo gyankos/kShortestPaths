@@ -4,8 +4,8 @@
 
 //#include <new.h>
 #define CUSTOMNEW
-#include "2heap.h"
-#include "list.h"
+#include <kshortestpaths/2heap.h>
+#include <kshortestpaths/list.h>
 
 #ifndef kShortestPaths_graph
 #define kShortestPaths_2heap

@@ -2,7 +2,7 @@
 // Created by giacomo on 10/06/21.
 //
 
-#include "kbest.h"
+#include <kshortestpaths/kbest.h>
 
 template<>Node<GraphHeap *> *Node<GraphHeap *>::freeList = nullptr;
 template<> const int Node<GraphHeap *>::newBlocksize = 64;
