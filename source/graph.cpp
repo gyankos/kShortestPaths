@@ -170,8 +170,7 @@ std::ostream & operator << (std::ostream &o, GraphArc &a)
   return o << '(' << a.source << ' ' << a.dest << ' ' << a.weight << ')';
 }
 
-std::istream & operator >> (std::istream &istr, GraphArc &a)
-{
+std::istream & operator >> (std::istream &istr, GraphArc &a) {
   char c;
   int i;
   istr >> c;			// open paren
@@ -179,18 +178,16 @@ std::istream & operator >> (std::istream &istr, GraphArc &a)
   istr >> a.dest;
   istr >> a.weight;
   istr >> c;			// close paren
-  a.data = NULL;
+  a.data = nullptr;
   return istr;
 }
 
-std::istream & operator >> (std::istream &istr, GraphState &s)
-{
+std::istream & operator >> (std::istream &istr, GraphState &s) {
   char c;
   return istr;
 }
 
-std::istream & operator >> (std::istream &istr, Graph &g)
-{
+std::istream & operator >> (std::istream &istr, Graph &g) {
   char c;
   GraphArc a;
   istr >> g.nStates;

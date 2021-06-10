@@ -8,7 +8,7 @@
 #include <kshortestpaths/list.h>
 
 #ifndef kShortestPaths_graph
-#define kShortestPaths_2heap
+#define kShortestPaths_graph
 
 struct GraphArc {
   int source;
